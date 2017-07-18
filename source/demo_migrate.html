@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>迁徙图</title>
+  <meta charset="utf-8">
+  <!-- style -->
+  <link rel="stylesheet" type="text/css" href="style/css/demo-migrate.css" />
+  <link rel="stylesheet" type="text/css" href="plugin/bootstrap-3.3.7/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="style/css/ecal.css" />
+  <!-- plugin jquery -->
+  <!-- PS: loading jquery before bootstrap -->
+  <script type="text/javascript" src="plugin/jquery/js/jquery-v1.10.1.min.js"></script>
+  <script type="text/javascript" src="plugin/jquery/js/jquery.cookie.js"></script>
+  <!-- plugin bootstrap -->
+  <script type="text/javascript" src="plugin/bootstrap-2.3.1/js/bootstrap.min.js"></script>
+  <!-- plugin Ecalendar -->
+  <script type="text/javascript" src="plugin/Ecalendar/Ecalendar.jquery.min.js"></script>
+  <!-- plugin Chart -->
+  <script type="text/javascript" src="style/js/Chart.bundle.js"></script>
+  <!-- plugin eCharts -->
+  <script type="text/javascript" src="plugin/eCharts/dist/echarts.js"></script>
+  <!-- plugin baidu map -->
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+  <!-- <script type="text/javascript" src="plugin/Baidumap-offline2.0/apiv2.0.min.js"></script> -->
+  <!-- interface -->
+  <!-- PS: loading interface before operation -->
+  <script type="text/javascript" src="ice/js/lib/Ice.js"></script>
+  <script type="text/javascript" src="interface/Security.js"></script>
+  <!-- self script -->
+  <script type="text/javascript" src="operation/op-public.js"></script>
+  <script type="text/javascript" src="operation/op-migrate-data.js"></script>
+  <script type="text/javascript" src="operation/demo-migrate.js"></script>
+</head>
+
+<body>
+  <div class="head">
+    <img src="style/img/head.png">
+  </div>
+  <div class="body">
+    <div class="left">
+      <div class="migrate">
+        <div class="title">
+          <span class="title-name migrate-title">迁徙图</span>
+        </div>
+        <div class="content">
+          <div class="rectangle">
+            <div id="map">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="top">
+        <div class="chartbar">
+          <div class="title">
+            <span class="title-name chartbar-title">外来人口</span>
+          </div>
+          <div class="action">
+            <input class="bar_ac_btn" type="button" name="sensitive" value="敏感地区">
+            <input class="bar_ac_btn" type="button" name="province" value="省内">
+            <input class="bar_ac_btn" type="button" name="domestic" value="国内">
+            <input class="bar_ac_btn" type="button" name="abroad" value="境外">
+          </div>
+          <div class="content">
+            <div class="linebar">
+              <canvas id="bar" width="84%" height="30%"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="chartpie">
+          <div class="title">
+            <span class="title-name chartpie-title">新疆地区</span>
+          </div>
+          <div class="content">
+            <div class="pie">
+              <canvas id="pie" width="80%" height="65%"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="setting">
+          <div class="content">
+            <div class="quick-btns">
+              <p>最近</p>
+              <table>
+                <tr>
+                  <td id="one_day"><img src="style/img/btn/btn-prev.png">
+                    <input type="button" name="" value="一天">
+                  </td>
+                  <td id="one_week"><img src="style/img/btn/btn-prev.png">
+                    <input type="button" name="" value="一周">
+                  </td>
+                  <td id="one_month"><img src="style/img/btn/btn-prev.png">
+                    <input type="button" name="" value="一月">
+                  </td>
+                </tr>
+                <tr>
+                  <td id="three_month"><img src="style/img/btn/btn-prev.png">
+                    <input type="button" name="" value="三月">
+                  </td>
+                  <td id="one_year"><img src="style/img/btn/btn-prev.png">
+                    <input type="button" name="" value="一年">
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="calendar">
+              <div class="one">
+                <p>开始时间</p>
+                <div class="calendarWarp">
+                  <input id="starttime" type="date" value="2017-01-01" />
+                </div>
+              </div>
+              <div class="one">
+                <p>截止时间</p>
+                <div class="calendarWarp">
+                  <input id="endtime" type="date" value="2017-01-01" />
+                </div>
+              </div>
+            </div>
+            <div class="search">
+              <input id="search" type="button" name="" value="查询">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 
+  <div class="migrate-bottom">
+    <div class="left">
+      <div class="title">
+        <span>迁徙图</span>
+      </div>
+      <div class="points"></div>
+      <div class="baidu-map">
+        <div class="rectangle">
+          <div id="map">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="top">
+        <div class="bar">
+          <div class="title">
+            <span>外来人口</span>
+          </div>
+          <div class="chart-bar">
+            <canvas id="bar" width="100%" height="40%"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="pie">
+          <div class="title">
+            <span>敏感地区人口</span>
+          </div>
+          <div class="chart-pie">
+            <canvas id="pie" width="100%" height="60%"></canvas>
+          </div>
+        </div>
+        <div class="setting">
+          <div class="content">
+            <div class="quick-btns">
+              <p>最近</p>
+              <table>
+                <tr>
+                  <td><img src="style/img/btn/btn-prev.png">
+                    <input type="button" name="" value="一天">
+                  </td>
+                  <td><img src="style/img/btn/btn-prev.png">
+                    <input type="button" name="" value="一周">
+                  </td>
+                  <td><img src="style/img/btn/btn-prev.png">
+                    <input type="button" name="" value="一月">
+                  </td>
+                </tr>
+                <tr>
+                  <td><img src="style/img/btn/btn-prev.png">
+                    <input type="button" name="" value="三月">
+                  </td>
+                  <td><img src="style/img/btn/btn-prev.png">
+                    <input type="button" name="" value="一年">
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="calendar">
+              <p>开始时间</p>
+              <div class="calendarWarp">
+                <input type="text" name="date" class='ECalendar' id="ECalendar_date_start" value="2017-3-1 15:32" data-ec="Wed Mar 01 2017 15:32:00 GMT+0800 (CST)" />
+              </div>
+              <p>截止时间</p>
+              <div class="calendarWarp">
+                <input type="text" name="date" class='ECalendar' id="ECalendar_date_end" value="2017-3-1 15:32" data-ec="Wed Mar 01 2017 15:32:00 GMT+0800 (CST)" />
+              </div>
+            </div>
+            <div class="search">
+              <input type="button" name="" value="查询">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+</body>
+
+</html>

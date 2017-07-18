@@ -1,0 +1,358 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;" charset="UTF-8"/>
+  <!-- title -->
+  <title>超级管理员</title>
+  <!-- style -->
+  <link rel="stylesheet" href="plugin/bootstrap-2.3.1/css/bootstrap.css" />
+  <link rel="stylesheet" href="style/css/local.css" />
+  <link rel="stylesheet" href="style/css/sa.css" />
+  <!-- plugin jquery -->
+  <!-- PS: loading jquery before bootstrap -->
+  <script type="text/javascript" src="plugin/jquery/js/jquery-v1.10.1.min.js"></script>
+  <script type="text/javascript" src="plugin/jquery/js/jquery.cookie.js"></script>
+  <!-- plugin bootstrap -->
+  <script type="text/javascript" src="plugin/bootstrap-2.3.1/js/bootstrap.min.js"></script>
+  <!-- style js -->
+  <script type="text/javascript" src="plugin/local/js/local.js"></script>
+  <!-- interface -->
+  <!-- PS: loading interface before operation -->
+  <script type="text/javascript" src="ice/js/lib/Ice.js"></script>
+  <script type="text/javascript" src="interface/Hello.js"></script>
+  <script type="text/javascript" src="interface/Security.js"></script>
+  <!-- operation -->
+  <!-- <script type="text/javascript" src="operation/op-public.js"></script> -->
+  <script type="text/javascript" src="operation/op-sa.js"></script>
+  <script type="text/javascript" src="operation/op-user.js"></script>
+  <script type="text/javascript" src="operation/op-device.js"></script>
+</head>
+
+<body>
+  <div id="background">
+    <img src="style/img/bg.png" />
+  </div>
+  <div id="container">
+    <div id="title">
+      <h2>无线巡逻侦控系统·TMV</h2>
+    </div>
+    <div id="bodys">
+      <!-- 菜单frame -->
+      <div id="menu">
+        <ul>
+          <!-- <li name="system_staus" class="active">系统状态</li> -->
+          <li name="account" class="active">管理员账户维护</li>
+          <li name="device">信息设备维护</li>
+          <li name="update_pwd">修改密码</li>
+          <li name="logout">退出登录</li>
+        </ul>
+      </div>
+      <!-- 内容frame -->
+      <div id="content">
+        <!-- 间隔线 -->
+        <img style="float:left;" src="style/img/u2909.png">
+        <!-- 系统状态页 -->
+        <div id="system_staus_div" class="content_div">
+          <div class="background_o"></div>
+          <div id="system_panel_div" class="panel_div"></div>
+        </div>
+        <!-- 账户列表页 -->
+        <div id="account_div" class="content_div">
+          <div class="background_o"></div>
+          <div class="panel_div">
+            <table id="tables" style="font-size:13px;" class="table table-striped">
+              <caption><h3>管理员用户列表</h3></caption>
+              <thead style="font-size: 1.3em;">
+                <th style="width: 50px;">选择</th>
+                <th>用户名</th>
+                <th>密码</th>
+                <th>工作单位</th>
+                <th>类型</th>
+                <th>备注</th>
+                <th>设置</th>
+              </thead>
+              <tbody id="account_body">
+              </tbody>
+            </table>
+            <div id="account_action" class="_action">
+              <ul>
+                <li name="add" data-toggle="modal" data-target="#account_add">添加</li>
+                <li name="del" id="delete_account">删除</li>
+                <!-- <li name="">导出excel</li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- 账户添加Modal -->
+        <div id="account_add" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="float: left;">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+              ×
+            </button>
+            <h3 id="myModalLabel">添加管理账号</h3>
+          </div>
+          <div style="margin:20px auto; width:400px;">
+            <table style="margin:20px auto;">
+              <tr>
+                <td>管理员账户名:</td>
+                <td style="width: 20px;"></td>
+                <td style="width: 180px;">
+                  <input id="account_name" type="text" style="width: 100%;" />
+                </td>
+              </tr>
+              <tr>
+                <td>账户类型:</td>
+                <td style="width: 20px;"></td>
+                <td style="width: 180px;">
+                  <select id="account_role" style="width: 100%;">
+                    <option value="Manager">普通管理员</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>分局名称:</td>
+                <td style="width: 20px;"></td>
+                <td style="width: 180px;">
+                  <input id="account_department" type="text" style="width: 100%;"/>
+                </td>
+              </tr>
+              <tr>
+                <td>密码:</td>
+                <td style="width: 20px;"></td>
+                <td style="width: 180px;">
+                  <input id="account_password" type="password" style="width: 100%;"/>
+                </td>
+              </tr>
+              <tr>
+                <td>密码确认:</td>
+                <td style="width: 20px;"></td>
+                <td style="width: 180px;">
+                  <input id="account_password_check" type="password" style="width: 100%;"/>
+                </td>
+              </tr>
+              <tr>
+                <td>备注:</td>
+                <td style="width: 20px;"></td>
+                <td style="width: 180px;">
+                  <input id="account_description" type="text" style="width: 100%;"/>
+                </td>
+              </tr>
+            </table>
+            <li id="add_account" style="width:120px; text-align:center;margin:0px auto;">添加</li>
+          </div>
+        </div>
+        <!-- 账户更新Modal -->
+        <div id="account_update" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+              ×
+            </button>
+            <h3 id="myModalLabel">修改管理账号信息</h3>
+          </div>
+          <div style="margin:20px auto; width:400px;">
+            <table style="margin:20px auto;">
+              <tr>
+                <td>管理员账户名:</td>
+                <td style="width: 20px;"></td>
+                <td style="width: 180px;">
+                  <input id="account_name_up" type="text" style="width: 100%;" readonly="true"/>
+                </td>
+              </tr>
+              <tr>
+                <td>账户类型:</td>
+                <td style="width: 20px;"></td>
+                <td style="width: 180px;">
+                  <select id="account_role_up" style="width: 100%;">
+                    <option value="Manager">普通管理员</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>分局名称:</td>
+                <td style="width: 20px;"></td>
+                <td style="width: 180px;">
+                  <input id="account_department_up" type="text" style="width: 100%;"/>
+                </td>
+              </tr>
+              <tr>
+                <td>新密码:</td>
+                <td style="width: 20px;"></td>
+                <td style="width: 180px;">
+                  <input id="account_password_up" type="password" style="width: 100%;"/>
+                </td>
+              </tr>
+              <tr>
+                <td>新密码确认:</td>
+                <td style="width: 20px;"></td>
+                <td style="width: 180px;">
+                  <input id="account_password_check_up" type="password" style="width: 100%;"/>
+                </td>
+              </tr>
+              <tr>
+                <td>备注:</td>
+                <td style="width: 20px;"></td>
+                <td style="width: 180px;">
+                  <input id="account_description_up" type="text" style="width: 100%;"/>
+                </td>
+              </tr>
+            </table>
+            <li id="update_account" style="width:120px; text-align:center;margin:0px auto;">修改</li>
+          </div>
+        </div>
+        <!-- 设备列表页 -->
+        <div id="device_div" class="content_div">
+          <div class="background_o"></div>
+          <div class="panel_div">
+            <table id="tables" style="font-size:13px;" class="table table-striped">
+              <caption><h3>信息设备列表</h3></caption>
+              <thead style="font-size: 1.3em;">
+                <th style="width: 50px;">选择</th>
+                <th>设备编号</th>
+                <th>设备名称</th>
+                <th>使用部门</th>
+                <th>责任人</th>
+                <th>登记时间</th>
+                <th>设置</th>
+              </thead>
+              <tbody id="device_body">
+              </tbody>
+            </table>
+            <div id="" class="_action">
+              <ul>
+                <li data-toggle="modal" data-target="#add_device_modal">添加</li>
+                <li id="delete_device">删除</li>
+                <!-- <li>导入excel</li> -->
+                <!-- <li>导出excel</li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- 设备添加Modal -->
+        <div id="add_device_modal" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+              ×
+            </button>
+            <h3 id="myModalLabel">添加设备</h3>
+          </div>
+          <div style="margin:20px auto; width:400px;">
+            <table style="margin:20px auto;">
+              <tr>
+                <td>设备编号:</td>
+                <td style="width: 20px;"></td>
+                <td style="width: 180px;">
+                  <input id="device_id" type="text" style="width: 100%;" />
+                </td>
+              </tr>
+              <tr>
+                <td>设备名称:</td>
+                <td style="width: 20px;"></td>
+                <td style="width: 180px;">
+                  <input id="device_name" type="text" style="width: 100%;" />
+                </td>
+              </tr>
+              <tr>
+                <td>分局名称:</td>
+                <td style="width: 20px;"></td>
+                <td style="width: 180px;">
+                  <input id="device_department" type="text" style="width: 100%;"/>
+                </td>
+              </tr>
+              <tr>
+                <td>责任人:</td>
+                <td style="width: 20px;"></td>
+                <td style="width: 180px;">
+                  <input id="device_peoincharge" type="text" style="width: 100%;"/>
+                </td>
+              </tr>
+              <tr>
+                <td>登记时间:</td>
+                <td style="width: 20px;"></td>
+                <td style="width: 180px;">
+                  <input id="device_regtime" type="text" style="width: 100%;"/>
+                </td>
+              </tr>
+            </table>
+            <li id="add_device" style="width:120px; text-align:center;margin:0px auto;">添加</li>
+          </div>
+        </div>
+        <!-- 设备更新Modal -->
+        <div id="update_device_modal" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+              ×
+            </button>
+            <h3 id="myModalLabel">修改设备</h3>
+          </div>
+          <div style="margin:20px auto; width:400px;">
+            <table style="margin:20px auto;">
+              <tr>
+                <td>设备编号:</td>
+                <td style="width: 20px;"></td>
+                <td style="width: 180px;">
+                  <input id="device_id_up" type="text" style="width: 100%;" readonly="true" />
+                </td>
+              </tr>
+              <tr>
+                <td>设备名称:</td>
+                <td style="width: 20px;"></td>
+                <td style="width: 180px;">
+                  <input id="device_name_up" type="text" style="width: 100%;" />
+                </td>
+              </tr>
+              <tr>
+                <td>分局名称:</td>
+                <td style="width: 20px;"></td>
+                <td style="width: 180px;">
+                  <input id="device_department_up" type="text" style="width: 100%;"/>
+                </td>
+              </tr>
+              <tr>
+                <td>责任人:</td>
+                <td style="width: 20px;"></td>
+                <td style="width: 180px;">
+                  <input id="device_peoincharge_up" type="text" style="width: 100%;"/>
+                </td>
+              </tr>
+              <tr>
+                <td>登记时间:</td>
+                <td style="width: 20px;"></td>
+                <td style="width: 180px;">
+                  <input id="device_regtime_up" type="text" style="width: 100%;"/>
+                </td>
+              </tr>
+            </table>
+            <li id="update_device" style="width:120px; text-align:center;margin:0px auto;">修改</li>
+          </div>
+        </div>
+        <!-- 修改密码页面 -->
+        <div id="update_pwd_div" class="content_div">
+          <div class="background_o"></div>
+          <div class="panel_div">
+            <div style='width:400px;margin:40px auto;line-height:40px;text-align:right;'>
+              <table>
+                <tr>
+                  <td>旧密码：</td>
+                  <td><input type='text' id="old_pwd"></td>
+                </tr>
+                <tr>
+                  <td>新密码：</td>
+                  <td><input type='text' id="new_pwd"></td>
+                </tr>
+                <tr>
+                  <td>确认密码：</td>
+                  <td><input type='text' id="check_new_pwd"></td>
+                </tr>
+              </table>
+              <div style='text-align:center;width:100%;height:30px;margin-top:10px;'>
+                <li id="update_pwd_submit" style='width:100px;margin:0px auto;text-align:center;'>确定</li>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

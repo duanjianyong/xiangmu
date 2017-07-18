@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>监控中心</title>
+  <meta charset="utf-8">
+  <!-- style -->
+  <!-- <link rel="stylesheet" type="text/css" href="plugin/bootstrap-3.3.7/css/bootstrap.css" /> -->
+  <link rel="stylesheet" type="text/css" href="plugin/bootstrap-2.3.1/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="style/css/demo-monitor.css" />
+  <!-- plugin jquery -->
+  <!-- PS: loading jquery before bootstrap -->
+  <script type="text/javascript" src="plugin/jquery/js/jquery-v1.10.1.min.js"></script>
+  <script type="text/javascript" src="plugin/jquery/js/jquery.cookie.js"></script>
+  <!-- plugin bootstrap -->
+  <script type="text/javascript" src="plugin/bootstrap-2.3.1/js/bootstrap.min.js"></script>
+  <!-- baidu map -->
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+  <!-- <script type="text/javascript" src="plugin/Baidumap-offline2.0/apiv2.0.min.js"></script> -->
+  <!-- interface -->
+  <!-- PS: loading interface before operation -->
+  <script type="text/javascript" src="ice/js/lib/Ice.js"></script>
+  <script type="text/javascript" src="interface/Security.js"></script>
+  <script type="text/javascript" src="interface/Callback.js"></script>
+  <!-- self script -->
+  <script type="text/javascript" src="operation/op-public.js"></script>
+  <script type="text/javascript" src="operation/op-device.js"></script>
+  <script type="text/javascript" src="operation/demo-monitor.js"></script>
+  <script type="text/javascript" src="operation/ice-message.js"></script>
+</head>
+
+<body>
+  <div id="alarm" class="alert alert-block" style="display: none; position: absolute; left: 0; top: 0; width: 100%; z-index: 2;  border: 0; padding: 0; margin:0;">
+    <div style="widows: 80%; padding: 10px 20px;">
+      <button type="button" class="close" data-dismiss="alert" style="right: 0; top: 0; padding: 0; margin: 0;">&times;</button>
+      <h4>
+        <span id="alarm-content">
+          警报！长风一号侦测到黑名单人员信息，请派发指令。
+        </span>
+        <input type="button" name="" id="send-alarm-msg" class="btn btn-danger" value="发送指令">
+      </h4>
+    </div>
+  </div>
+  <div class="head">
+    <img src="style/img/head.png">
+  </div>
+  <div class="monitor">
+    <div class="left">
+      <!-- 长方形 -->
+      <div class="baidu-map">
+        <div class="rectangle">
+          <div id="map"></div>
+        </div>
+        <div class="screen">
+          <div class="content" id="device-list">
+          </div>
+        </div>
+      </div>
+      <!-- 八边形 -->
+      <!-- <div class="baidu-map">
+        <div class="octagon">
+          <div class="octagon-in" id="map"></div>
+        </div>
+      </div> -->
+    </div>
+    <div class="right">
+      <div class="message">
+        <div class="message_list">
+          <ul id="message_ul">
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+<script type="text/javascript">
+</script>

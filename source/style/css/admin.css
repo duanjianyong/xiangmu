@@ -1,0 +1,284 @@
+body {
+    height: 100%;
+    width: 100%;
+    background-color: #336699;
+    color: white;
+}
+
+#background {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+#background img {
+    width: 100%;
+    height: 100%;
+}
+
+#container {
+    width: 98%;
+    position: relative;
+    margin: 0px auto;
+}
+
+#title {
+    line-height: 40px;
+    height: 40px;
+    width: 100%;
+    position: relative;
+}
+
+#title h2 {
+    width: 100%;
+    text-align: center;
+    color: #BEE9FF
+}
+
+#menu {
+    width: 20%;
+    margin-top: 100px;
+    text-align: center;
+    ;
+    font-size: 14px;
+    float: left;
+}
+
+#menu ul {
+    width: 150px;
+    margin-right: 40px;
+    float: right;
+}
+
+li {
+    list-style: none;
+    background-color: rgba(17, 49, 85, 1);
+    margin: 10px 0px;
+    line-height: 30px;
+    border-radius: 5px;
+    border: solid 1px rgba(190, 233, 255, 1);
+    cursor: pointer;
+}
+
+.page {
+    width: 500px;
+    margin: 0px auto;
+}
+
+.page li {
+    line-height: 20px;
+}
+
+#content {
+    width: 80%;
+    margin-top: 20px;
+    float: left;
+    font-size: 14px;
+}
+
+.content_div {
+    width: 90%;
+    margin-left: 40px;
+    border: solid 1px rgba(121, 121, 121, 1);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    display: none;
+}
+
+.background_o {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    background-color: rgba(17, 49, 85, 1);
+}
+
+.panel_div {
+    width: 96%;
+    margin: 2%;
+    position: relative;
+}
+
+.table li {
+    line-height: 20px;
+    margin: 0px;
+}
+
+#own_info p {
+    color: #BEE9FF;
+}
+
+#own_info input {
+    height: 30px;
+    font-size: 14px;
+}
+
+.account_action {
+    height: 30px;
+    margin-top: 10px;
+}
+
+.tables {
+    text-align: center;
+}
+
+.account_action li {
+    width: 100px;
+    float: right;
+    text-align: center;
+    margin: 0px 10px;
+}
+
+.tables li {
+    margin: 0px;
+    line-height: 25px;
+}
+
+.table th,
+.table td {
+    text-align: center;
+}
+
+#log_panel_div select {
+    background-color: rgba(17, 49, 85, 1);
+    text-align: center;
+    color: white;
+    width: 150px;
+    margin-right: 10px;
+    margin-bottom: 0px;
+}
+
+.li_s {
+    border: solid 1px gray;
+    padding: 0px 5px;
+    line-height: 25px;
+    margin: 5px 0px;
+}
+
+ul,
+p {
+    margin: 0px;
+}
+
+.triangle-down {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #0066cc;
+    float: right;
+    margin: 8px 2px;
+}
+
+.active {
+    background-color: #0033FF;
+}
+
+.triangle-up {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #0066cc;
+    float: right;
+    margin: 8px 2px;
+}
+
+.Details {
+    left: 250px;
+    bottom: 20px;
+    height: 180px;
+    display: none;
+}
+
+._action {
+    height: 30px;
+    margin-top: 10px;
+}
+
+._action li {
+    width: 100px;
+    float: left;
+    text-align: center;
+    margin: 0px 10px;
+}
+
+.modal {
+    background-color: rgba(17, 49, 85, 1);
+}
+
+.modal p {
+    text-align: center;
+}
+
+.tb-bl {
+    border: 1px solid white;
+}
+
+.tb-bl th {
+    text-align: center;
+    border: 1px solid white;
+    max-height: 30px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.tb-bl tr {}
+
+.tb-bl tr td {
+    min-height: 30px;
+    max-height: 150px;
+    max-width: 124px;
+    WORD-WRAP: break-word;
+    text-align: center;
+    border: 1px solid white;
+}
+
+.tb-bl tr td:nth-child(6) {
+    text-align: left;
+}
+
+.acc_bl_action {
+    background: green;
+    color: white;
+    border: 2px solid #71C671;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.del_bl_action {
+    background: red;
+    color: white;
+    border: 2px solid #FF7F24;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.sens_list {
+    width: 60%;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    border: 1px solid #fff;
+}
+
+.sens_list caption {
+    font-size: 28px;
+    font-weight: 300;
+    padding-bottom: 20px;
+}
+
+.sens_list th {
+    border: 1px solid #fff;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.sens_list tr, .sens_list td{
+    border: 1px solid #fff;
+    height: 40px;   
+    line-height: 40px;
+    text-align: center;
+}

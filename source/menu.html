@@ -1,0 +1,83 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;" charset="UTF-8"/>
+  <!-- title -->
+  <title>监控主页</title>
+  <!-- style -->
+  <link rel="stylesheet" href="style/css/management.css" />
+  <link rel="stylesheet" href="plugin/bootstrap-2.3.1/css/bootstrap.css" />
+  <!-- plugin jquery -->
+  <!-- PS: loading jquery before bootstrap -->
+  <script type="text/javascript" src="plugin/jquery/js/jquery-v1.10.1.min.js"></script>
+  <!-- style js -->
+  <script type="text/javascript" src="plugin/local/js/local.js"></script>
+  <style type="text/css">
+  body {
+    background-color: rgba(17, 49, 85, 1);
+  }
+  
+  #imgs {
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+    padding-bottom: 25px
+  }
+  
+  #imgs img {
+    width: 250px;
+    margin: 0px 5px;
+    cursor: pointer;
+  }
+  </style>
+  <script src="Plugin/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+  function onload() {
+    g_ref.win_height = document.body.offsetHeight || window.screen.availHeight;
+    var menus = document.getElementById("menus");
+    menus.style.marginTop = (g_ref.win_height - menus.offsetHeight) / 2 + "px";
+    events();
+  }
+
+  function events() {
+    $("#imgs img").click(function() {
+      if (this.name == "real_time") {
+        // window.location.href = "index.html";
+        window.location.href = "demo_monitor.html";
+      } else if (this.name == "heatchart") {
+        // window.location.href = "heatchart.html";
+        window.location.href = "demo_heatmap.html";
+      } else if (this.name == "migrate") {
+        // window.location.href = "migrate.html";
+        window.location.href = "demo_migrate.html";
+      }
+    });
+  }
+  </script>
+</head>
+
+<body onload="onload()">
+  <div id="menus">
+    <div style="width:750px;height:200px;margin:20px auto;color:#CCCCCC; position:relative;">
+      <div style="float:left;">
+        <img style="width:200px;height:200px;" src="style/img/logo.png">
+      </div>
+      <div style="float:left;margin-top:30px;width:550px;text-align:center;">
+        <p style="font-size:42px;line-height:100px;font-weight:bold;">无线巡逻侦控系统</p>
+        <p style="font-size:18px;">WIRELESS PATORLING DETECTOR SYSTEM</p>
+      </div>
+    </div>
+    <div style="text-align:left;width:80%;margin:0px auto;margin-top:10px;position:relative;">
+      <img src="style/img/u0_start.png" style="position:absolute;top:0px;width:21px;">
+      <img src="style/img/u0_line.png" style="width:99%;height:5px;padding:0px;margin-top:8.5px;margin-left: 5px">
+      <img src="style/img/u0_end.png" style="position:absolute;top:0px;right:0px;width:21px;" />
+    </div>
+    <div id="imgs">
+      <img name="real_time" src="style/img/u1.png">
+      <img name="migrate" src="style/img/u3.png">
+      <img name="heatchart" src="style/img/u5.png">
+    </div>
+  </div>
+</body>
+
+</html>

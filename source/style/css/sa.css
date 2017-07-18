@@ -1,0 +1,162 @@
+body {
+    height: 100%;
+    width: 100%;
+    background-color: #336699;
+    color: white;
+}
+
+#background {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+#background img {
+    width: 100%;
+    height: 100%;
+}
+
+#container {
+    width: 98%;
+    position: relative;
+    margin: 0px auto;
+}
+
+#title {
+    line-height: 40px;
+    height: 40px;
+    width: 100%;
+    position: relative;
+}
+
+#title h2 {
+    width: 100%;
+    text-align: center;
+    color: #BEE9FF
+}
+
+#menu {
+    width: 20%;
+    margin-top: 100px;
+    text-align: center;
+    ;
+    font-size: 14px;
+    float: left;
+}
+
+#menu ul {
+    width: 150px;
+    margin-right: 40px;
+    float: right;
+}
+
+.active {
+    background-color: #0033FF;
+}
+
+li {
+    list-style: none;
+    background-color: rgba(17, 49, 85, 1);
+    margin: 10px 0px;
+    line-height: 30px;
+    border-radius: 5px;
+    border: solid 1px rgba(190, 233, 255, 1);
+    cursor: pointer;
+}
+
+#content {
+    width: 80%;
+    margin-top: 20px;
+    float: left;
+    font-size: 14px;
+}
+
+.content_div {
+    width: 90%;
+    margin-left: 40px;
+    border: solid 1px rgba(121, 121, 121, 1);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    display: none;
+}
+
+.background_o {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    background-color: rgba(17, 49, 85, 1);
+}
+
+.panel_div {
+    width: 96%;
+    margin: 2%;
+    position: relative;
+}
+
+.info_div {
+    width: 100%;
+    border: solid 1px gray;
+    line-height: 25px;
+    font-size: 14px;
+    background-color: rgba(17, 49, 85, 1);
+    padding: 10px 0px;
+}
+
+.info_div p {
+    margin-left: 80px;
+}
+
+#update_pwd_div p {
+    color: #BEE9FF;
+}
+
+#update_pwd_div input {
+    height: 30px;
+    font-size: 14px;
+}
+
+._action {
+    height: 30px;
+    margin-top: 10px;
+}
+
+#tables {
+    text-align: center;
+}
+
+._action li {
+    width: 100px;
+    float: left;
+    text-align: center;
+    margin: 0px 10px;
+}
+
+#tables li {
+    margin: 0px;
+    line-height: 25px;
+}
+
+.table th,
+.table td {
+    text-align: center;
+}
+
+select {
+    width: 150px;
+}
+
+.modal {
+    background-color: rgba(17, 49, 85, 1);
+}
+
+.modal p {
+    text-align: center;
+}
+
+.panel_div {
+    font-size: 1.3em;
+}

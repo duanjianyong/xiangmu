@@ -1,0 +1,16 @@
+	*{
+		margin:0px;
+		padding:0px;
+	}
+	body{
+		min-width: 860px;
+	}
+	html,body{
+		padding:0px;
+		margin:0px;
+		width:100%;
+		height:100%;
+		background-color:#003D79;
+		color:white;
+	}
+		

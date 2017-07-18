@@ -1,0 +1,78 @@
+#bg{
+			width:100%;
+			height:100%;
+			position:fixed;
+			top:0px;
+			left:0px;
+		}
+		#bodys{
+			position:relative;
+			width:98%;
+			height:600px;
+			padding:10px 1%;
+		}
+		#map{
+			width:70%;
+			height:100%;
+			float:left;
+			overflow: hidden;
+			position: relative;
+			z-index: 0;
+			background-color: rgb(243, 241, 236);
+			color: rgb(0, 0, 0);
+			text-align: left
+		}
+		#chars{
+			width:27%;
+			height:100%;
+			float:right;
+			text-align:center;
+			line-height:30px;
+		}
+		#footer{
+			height:50px;
+			width:98%;
+			position:relative;
+			padding:15px 1%;
+		}
+		.btn_radius{
+			border-radius:5px;
+			background-color:#003D79;
+			box-shadow: 1px 1px 1px gray;
+			padding:0px 8px;
+			line-height:30px;
+		}
+		.footer_float{
+			float:left;
+			width:60px;
+			text-align:center;
+			margin:0px 1px;
+		}
+		#Operator{
+			height:50%;
+			width:100%;
+		}
+		#Attribution{
+			height:50%;
+			width:100%;
+		}
+		#all_car{
+			width:98%;
+			margin-bottom:10px;
+			margin:0px auto;
+			border:solid 1px gray;
+			margin-bottom:10px;
+			display:none;
+		}
+		.car_li{
+			height:180px;
+			width:310px;
+			float:left;
+			position:absolute;
+			top:-45px;
+			left:-50px;
+		}
+		#date_s{
+			width:100%;
+			color:black;
+		}
